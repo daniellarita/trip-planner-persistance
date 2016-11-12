@@ -8,6 +8,7 @@ var Attractions = (function() {
     restaurants: restaurants.map((restaurant) => new Attraction('restaurant', restaurant)),
     activities: activities.map((activity) => new Attraction('activity', activity))
   };
+  // console.log(attractions);
 
   function find(collection, id) {
     return collection.find((item) => item.id === id);
