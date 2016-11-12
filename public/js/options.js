@@ -25,6 +25,14 @@ function initializeOptions() {
 
     let attraction = Attractions.find(type, id);
     Trip.addToCurrent(attraction);
+    console.log(Trip.currentDay())
+    var dayObj=Trip.currentDay();
+    $.ajax({
+      method:'POST',
+      url:'/days/'+dayObj.number,
+      data:dayObj,
+      processData:false
+    })
   });
 }
 

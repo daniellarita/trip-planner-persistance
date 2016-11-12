@@ -12,12 +12,12 @@ const Days = require('../../models/day');
 router.get('/days', function (req, res, next) {
 
   Days.create({
-    day_number:1,
-    hotelId:3
+    // day_number:1,
+    // hotelId:3
   })
   .then(function(dayInstance) {
-    dayInstance.addRestaurant(3)
-    dayInstance.addActivity(4);
+    // dayInstance.addRestaurant(3)
+    // dayInstance.addActivity(4);
   })
   .then(function() {
     return Days.findAll({
@@ -33,13 +33,23 @@ router.get('/days', function (req, res, next) {
   })
 });
 
-router.post('/days', function (req, res, next) {
+router.post('/days/:day_number', function (req, res, next) {
+
   Days.create({
-    day_number:1,
-    hotelId:3
+    day_number:req.body.number,
+    hotel_id:req.body.hotel.id
   })
-  .then(function() {
-    Days.setRestaurant(3);
+  .then(function(dayInstance) {
+    console.log(req.body)
+    var restaurant=req.body.restaurants
+    console.log(restaurant)
+    restaurant.forEach(function(el){
+      dayInstance.addRestaurant(el.id)
+    })
+    // var activity=req.body.a
+    // restaurant.forEach(function(el){
+    //   dayInstance.addRestaurant(el.id)
+    // })
   })
   .then(function(){
     return Days.findAll()

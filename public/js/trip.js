@@ -66,6 +66,10 @@ var Trip = (function() {
   }
 
   var publicAPI = {
+    currentDay:function(){
+      return currentDay;
+    },
+    
     load: function() {
       $(addDay);
     },
