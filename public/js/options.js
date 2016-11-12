@@ -65,6 +65,7 @@ $(function() {
   .then(function(result){
     console.log(result)
   })
+  .then(Attractions.isReady)
   .then(initializeOptions)
   .then(function() {
     $(Trip.load);
