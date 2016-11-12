@@ -59,6 +59,12 @@ $(function() {
     activities = responseData;
     console.log(activities);
   })
+  .then(function(){
+    return $.get('/days')
+  })
+  .then(function(result){
+    console.log(result)
+  })
   .then(initializeOptions)
   .then(function() {
     $(Trip.load);
