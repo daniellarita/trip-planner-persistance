@@ -3,18 +3,23 @@
 // Attractions maintains a list of all "Attraction" JavaScript objects
 // created from the existing database info on the page.
 var Attractions = (function() {
-  var attractions = {
-    hotels: hotels.map((hotel) => new Attraction('hotel', hotel)),
-    restaurants: restaurants.map((restaurant) => new Attraction('restaurant', restaurant)),
-    activities: activities.map((activity) => new Attraction('activity', activity))
-  };
-  // console.log(attractions);
+  console.log("hello");
+  var attractions = {};
 
   function find(collection, id) {
     return collection.find((item) => item.id === id);
   }
 
   var publicAPI = {
+
+    isReady: function() {
+      attractions = {
+        hotels: hotels.map((hotel) => new Attraction('hotel', hotel)),
+        restaurants: restaurants.map((restaurant) => new Attraction('restaurant', restaurant)),
+        activities: activities.map((activity) => new Attraction('activity', activity))
+      }
+    },
+
     find: function(type, id) {
       let intId = parseInt(id);
 

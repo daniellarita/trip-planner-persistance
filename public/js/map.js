@@ -42,6 +42,7 @@ var Map = (function (){
 
   // Adjust view depending on current attractions
   function resetBounds() {
+    // debugger;
     let currentAttractions = Trip.getAttractions();
 
     if (currentAttractions.length) {
@@ -117,4 +118,3 @@ var styleArr = [{
   elementType: 'geometry.fill',
   stylers: [{ color: '#b6c54c' }, { lightness: 40 }, { saturation: -40 }]
 }];
-
